@@ -5,12 +5,12 @@
 class BulkRename < Formula
   desc "Easy files renaming tools which rename files in a bulk manner."
   homepage "https://github.com/seehait-c/bulk-rename"
-  version "0.0.2"
+  version "0.0.3"
   license "MIT"
 
   on_macos do
-    url "https://github.com/seehait-c/bulk-rename/releases/download/0.0.2/bulk-rename_0.0.2_Darwin_all.tar.gz"
-    sha256 "c9d040a92f81cd85a2906a8def78ef9d2a14b4c20a300744a9af8914cb719672"
+    url "https://github.com/seehait-c/bulk-rename/releases/download/0.0.3/bulk-rename_0.0.3_Darwin_all.tar.gz"
+    sha256 "04f08999f8258a5656a9a8cbf4f9abc1a48278d3ccd3be8fff0c46367f799bc9"
 
     def install
       bin.install "bulk-rename"
@@ -18,17 +18,17 @@ class BulkRename < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/seehait-c/bulk-rename/releases/download/0.0.2/bulk-rename_0.0.2_Linux_x86_64.tar.gz"
-      sha256 "11cc54d02c68385bbe722fa9ead0a6bf5c9edbc9a2be7d7c419fc6c1a710d8a4"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/seehait-c/bulk-rename/releases/download/0.0.3/bulk-rename_0.0.3_Linux_arm64.tar.gz"
+      sha256 "7d9f18777fabe3ad31f77e38cc5c87fb7cabef89569b168f09a8ed68adef090e"
 
       def install
         bin.install "bulk-rename"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/seehait-c/bulk-rename/releases/download/0.0.2/bulk-rename_0.0.2_Linux_arm64.tar.gz"
-      sha256 "805fbabc36113ba7de85a615cf9e861f13860ac43155e08aad4a5641f772fce6"
+    if Hardware::CPU.intel?
+      url "https://github.com/seehait-c/bulk-rename/releases/download/0.0.3/bulk-rename_0.0.3_Linux_x86_64.tar.gz"
+      sha256 "2080a70247f138fbad7774c1e884ebcc7000bc1f8449365cf542ad476ba2b758"
 
       def install
         bin.install "bulk-rename"
